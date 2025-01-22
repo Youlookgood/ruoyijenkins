@@ -1,0 +1,1 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0da79f"],{"6c84":function(n,p,c){n.exports=c.p+"static/img/微信.1414dd4a.png"}}]);

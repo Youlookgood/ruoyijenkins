@@ -1,0 +1,184 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1"><meta name=renderer content=webkit><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link rel=icon href=favicon.ico><title>思腾出纸机</title><!--[if lt IE 11]><script>window.location.href='/html/ie.html';</script><![endif]--><style>html,
+    body,
+    #app {
+      height: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+    .chromeframe {
+      margin: 0.2em 0;
+      background: #ccc;
+      color: #000;
+      padding: 0.2em 0;
+    }
+
+    #loader-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 999999;
+    }
+
+    #loader {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 2s linear infinite;
+      -ms-animation: spin 2s linear infinite;
+      -moz-animation: spin 2s linear infinite;
+      -o-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      z-index: 1001;
+    }
+
+    #loader:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -webkit-animation: spin 3s linear infinite;
+      -moz-animation: spin 3s linear infinite;
+      -o-animation: spin 3s linear infinite;
+      -ms-animation: spin 3s linear infinite;
+      animation: spin 3s linear infinite;
+    }
+
+    #loader:after {
+      content: "";
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      border-top-color: #FFF;
+      -moz-animation: spin 1.5s linear infinite;
+      -o-animation: spin 1.5s linear infinite;
+      -ms-animation: spin 1.5s linear infinite;
+      -webkit-animation: spin 1.5s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+
+
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+
+
+    #loader-wrapper .loader-section {
+      position: fixed;
+      top: 0;
+      width: 51%;
+      height: 100%;
+      background: #7171C6;
+      z-index: 1000;
+      -webkit-transform: translateX(0);
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+    }
+
+    #loader-wrapper .loader-section.section-left {
+      left: 0;
+    }
+
+    #loader-wrapper .loader-section.section-right {
+      right: 0;
+    }
+
+
+    .loaded #loader-wrapper .loader-section.section-left {
+      -webkit-transform: translateX(-100%);
+      -ms-transform: translateX(-100%);
+      transform: translateX(-100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader-wrapper .loader-section.section-right {
+      -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+      transform: translateX(100%);
+      -webkit-transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+      transition: all 0.7s 0.3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+    }
+
+    .loaded #loader {
+      opacity: 0;
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+    }
+
+    .loaded #loader-wrapper {
+      visibility: hidden;
+      -webkit-transform: translateY(-100%);
+      -ms-transform: translateY(-100%);
+      transform: translateY(-100%);
+      -webkit-transition: all 0.3s 1s ease-out;
+      transition: all 0.3s 1s ease-out;
+    }
+
+    .no-js #loader-wrapper {
+      display: none;
+    }
+
+    .no-js h1 {
+      color: #222222;
+    }
+
+    #loader-wrapper .load_title {
+      font-family: 'Open Sans';
+      color: #FFF;
+      font-size: 19px;
+      width: 100%;
+      text-align: center;
+      z-index: 9999999999999;
+      position: absolute;
+      top: 60%;
+      opacity: 1;
+      line-height: 30px;
+    }
+
+    #loader-wrapper .load_title span {
+      font-weight: normal;
+      font-style: italic;
+      font-size: 13px;
+      color: #FFF;
+      opacity: 0.5;
+    }</style><link href=static/css/chunk-libs.88a05d58.css rel=stylesheet><link href=static/css/app.03decda2.css rel=stylesheet></head><body><div id=app><div id=loader-wrapper><div id=loader></div><div class="loader-section section-left"></div><div class="loader-section section-right"></div><div class=load_title>正在加载系统资源，请耐心等待</div></div></div><script>(function(c){function e(e){for(var d,u,a=e[0],t=e[1],k=e[2],r=0,b=[];r<a.length;r++)u=a[r],Object.prototype.hasOwnProperty.call(f,u)&&f[u]&&b.push(f[u][0]),f[u]=0;for(d in t)Object.prototype.hasOwnProperty.call(t,d)&&(c[d]=t[d]);o&&o(e);while(b.length)b.shift()();return h.push.apply(h,k||[]),n()}function n(){for(var c,e=0;e<h.length;e++){for(var n=h[e],d=!0,u=1;u<n.length;u++){var a=n[u];0!==f[a]&&(d=!1)}d&&(h.splice(e--,1),c=t(t.s=n[0]))}return c}var d={},u={runtime:0},f={runtime:0},h=[];function a(c){return t.p+"static/js/"+({}[c]||c)+"."+{"chunk-005cb0c7":"76140da9","chunk-0238e9b0":"95d49972","chunk-05d9d454":"1d73cc2b","chunk-0dfcea5a":"2d518b34","chunk-16d144ba":"20b8646d","chunk-1f51188d":"540dc8ff","chunk-1f8f3bef":"b7c6ebe5","chunk-210ca3e9":"a0bd3b20","chunk-210ce324":"a06a1e23","chunk-25ce5e6a":"318b56b5","chunk-2727631f":"354cdc9b","chunk-2acccec4":"0bf5e9f8","chunk-2d0b1626":"b282d1aa","chunk-2d0bce05":"4a3866fc","chunk-2d0c8e18":"f3821f15","chunk-2d0da2ea":"9ac17775","chunk-2d0da79f":"4e6b98bd","chunk-2d0f012d":"cd2f1077","chunk-2d20955d":"d823f39d","chunk-2d213ed5":"5f171d8e","chunk-175622f4":"64a27242","chunk-2d22252c":"b9f9eb8e","chunk-2d230898":"eb34a916","chunk-3a08d90c":"0b63d724","chunk-3b69bc00":"e32cfefb","chunk-3b90f0de":"1b8fbcd2","chunk-27d58c84":"28fc68be","chunk-4408f34e":"d717e968","chunk-4ab98858":"a4959fe3","chunk-582b2a7a":"9de97ba1","chunk-5a2b183b":"6d1c7b77","chunk-622a8984":"b7501b12","chunk-676f436a":"a0f1fb57","chunk-0132f831":"585830ca","chunk-2d0dae5a":"b86e0ef1","chunk-2d0d07f6":"74783b6d","chunk-1ccc5446":"aef04e12","chunk-31eae13f":"2b1d274a","chunk-de25bad2":"3a9b1374","chunk-8c70c2ee":"55f2eb47","chunk-2d0e9402":"451dc80c","chunk-577dd5c8":"5eb062f4","chunk-c44f0e0c":"4726dec9","chunk-73ed3ce1":"80525023","chunk-2255b8a8":"afb2fe83","chunk-69e30d0b":"805cca1d","chunk-6c099d12":"0c8b3adc","chunk-f45d914a":"e1f729b8","chunk-fbffe9d2":"85efb10b","chunk-78d2d26b":"624a41fe","chunk-68702101":"d6dd489c","chunk-2b02de32":"825b117d","chunk-7d929d43":"991a8006","chunk-2d0d38ff":"2a768bc1","chunk-2e162dc0":"cf6766bb","chunk-2d0de3b1":"d5132091","chunk-32e5fd97":"42b171e6","chunk-4aebf114":"2cc04acc","chunk-6d0cffdf":"d3203c94","chunk-d66b53c4":"a8367c64","chunk-8579d4da":"7b203dac","chunk-8ee3fc10":"a574ab1b","chunk-abef5a2c":"cabf57fd","chunk-bfed9b46":"27710c7f","chunk-d19c1a98":"80373618","chunk-e1a6d904":"be53fbc4","chunk-e2ff22c2":"b7cb25f2","chunk-e723daa2":"c4046345"}[c]+".js"}function t(e){if(d[e])return d[e].exports;var n=d[e]={i:e,l:!1,exports:{}};return c[e].call(n.exports,n,n.exports,t),n.l=!0,n.exports}t.e=function(c){var e=[],n={"chunk-05d9d454":1,"chunk-1f51188d":1,"chunk-1f8f3bef":1,"chunk-25ce5e6a":1,"chunk-2acccec4":1,"chunk-175622f4":1,"chunk-3b90f0de":1,"chunk-4ab98858":1,"chunk-5a2b183b":1,"chunk-622a8984":1,"chunk-1ccc5446":1,"chunk-8c70c2ee":1,"chunk-577dd5c8":1,"chunk-c44f0e0c":1,"chunk-fbffe9d2":1,"chunk-7d929d43":1,"chunk-6d0cffdf":1,"chunk-abef5a2c":1,"chunk-bfed9b46":1};u[c]?e.push(u[c]):0!==u[c]&&n[c]&&e.push(u[c]=new Promise((function(e,n){for(var d="static/css/"+({}[c]||c)+"."+{"chunk-005cb0c7":"31d6cfe0","chunk-0238e9b0":"31d6cfe0","chunk-05d9d454":"a00b75fd","chunk-0dfcea5a":"31d6cfe0","chunk-16d144ba":"31d6cfe0","chunk-1f51188d":"53da730e","chunk-1f8f3bef":"db631dbc","chunk-210ca3e9":"31d6cfe0","chunk-210ce324":"31d6cfe0","chunk-25ce5e6a":"3e10cd59","chunk-2727631f":"31d6cfe0","chunk-2acccec4":"20e2e07e","chunk-2d0b1626":"31d6cfe0","chunk-2d0bce05":"31d6cfe0","chunk-2d0c8e18":"31d6cfe0","chunk-2d0da2ea":"31d6cfe0","chunk-2d0da79f":"31d6cfe0","chunk-2d0f012d":"31d6cfe0","chunk-2d20955d":"31d6cfe0","chunk-2d213ed5":"31d6cfe0","chunk-175622f4":"38e3b70f","chunk-2d22252c":"31d6cfe0","chunk-2d230898":"31d6cfe0","chunk-3a08d90c":"31d6cfe0","chunk-3b69bc00":"31d6cfe0","chunk-3b90f0de":"ce2a2394","chunk-27d58c84":"31d6cfe0","chunk-4408f34e":"31d6cfe0","chunk-4ab98858":"5a402cd2","chunk-582b2a7a":"31d6cfe0","chunk-5a2b183b":"bbc9fa95","chunk-622a8984":"17fbdb6b","chunk-676f436a":"31d6cfe0","chunk-0132f831":"31d6cfe0","chunk-2d0dae5a":"31d6cfe0","chunk-2d0d07f6":"31d6cfe0","chunk-1ccc5446":"6dfe926d","chunk-31eae13f":"31d6cfe0","chunk-de25bad2":"31d6cfe0","chunk-8c70c2ee":"ec9cc045","chunk-2d0e9402":"31d6cfe0","chunk-577dd5c8":"78b49577","chunk-c44f0e0c":"78b49577","chunk-73ed3ce1":"31d6cfe0","chunk-2255b8a8":"31d6cfe0","chunk-69e30d0b":"31d6cfe0","chunk-6c099d12":"31d6cfe0","chunk-f45d914a":"31d6cfe0","chunk-fbffe9d2":"f81b3684","chunk-78d2d26b":"31d6cfe0","chunk-68702101":"31d6cfe0","chunk-2b02de32":"31d6cfe0","chunk-7d929d43":"84f98409","chunk-2d0d38ff":"31d6cfe0","chunk-2e162dc0":"31d6cfe0","chunk-2d0de3b1":"31d6cfe0","chunk-32e5fd97":"31d6cfe0","chunk-4aebf114":"31d6cfe0","chunk-6d0cffdf":"ecea2c5f","chunk-d66b53c4":"31d6cfe0","chunk-8579d4da":"31d6cfe0","chunk-8ee3fc10":"31d6cfe0","chunk-abef5a2c":"26191e71","chunk-bfed9b46":"9ed63f54","chunk-d19c1a98":"31d6cfe0","chunk-e1a6d904":"31d6cfe0","chunk-e2ff22c2":"31d6cfe0","chunk-e723daa2":"31d6cfe0"}[c]+".css",f=t.p+d,h=document.getElementsByTagName("link"),a=0;a<h.length;a++){var k=h[a],r=k.getAttribute("data-href")||k.getAttribute("href");if("stylesheet"===k.rel&&(r===d||r===f))return e()}var b=document.getElementsByTagName("style");for(a=0;a<b.length;a++){k=b[a],r=k.getAttribute("data-href");if(r===d||r===f)return e()}var o=document.createElement("link");o.rel="stylesheet",o.type="text/css",o.onload=e,o.onerror=function(e){var d=e&&e.target&&e.target.src||f,h=new Error("Loading CSS chunk "+c+" failed.\n("+d+")");h.code="CSS_CHUNK_LOAD_FAILED",h.request=d,delete u[c],o.parentNode.removeChild(o),n(h)},o.href=f;var i=document.getElementsByTagName("head")[0];i.appendChild(o)})).then((function(){u[c]=0})));var d=f[c];if(0!==d)if(d)e.push(d[2]);else{var h=new Promise((function(e,n){d=f[c]=[e,n]}));e.push(d[2]=h);var k,r=document.createElement("script");r.charset="utf-8",r.timeout=120,t.nc&&r.setAttribute("nonce",t.nc),r.src=a(c);var b=new Error;k=function(e){r.onerror=r.onload=null,clearTimeout(o);var n=f[c];if(0!==n){if(n){var d=e&&("load"===e.type?"missing":e.type),u=e&&e.target&&e.target.src;b.message="Loading chunk "+c+" failed.\n("+d+": "+u+")",b.name="ChunkLoadError",b.type=d,b.request=u,n[1](b)}f[c]=void 0}};var o=setTimeout((function(){k({type:"timeout",target:r})}),12e4);r.onerror=r.onload=k,document.head.appendChild(r)}return Promise.all(e)},t.m=c,t.c=d,t.d=function(c,e,n){t.o(c,e)||Object.defineProperty(c,e,{enumerable:!0,get:n})},t.r=function(c){"undefined"!==typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(c,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(c,"__esModule",{value:!0})},t.t=function(c,e){if(1&e&&(c=t(c)),8&e)return c;if(4&e&&"object"===typeof c&&c&&c.__esModule)return c;var n=Object.create(null);if(t.r(n),Object.defineProperty(n,"default",{enumerable:!0,value:c}),2&e&&"string"!=typeof c)for(var d in c)t.d(n,d,function(e){return c[e]}.bind(null,d));return n},t.n=function(c){var e=c&&c.__esModule?function(){return c["default"]}:function(){return c};return t.d(e,"a",e),e},t.o=function(c,e){return Object.prototype.hasOwnProperty.call(c,e)},t.p="",t.oe=function(c){throw console.error(c),c};var k=window["webpackJsonp"]=window["webpackJsonp"]||[],r=k.push.bind(k);k.push=e,k=k.slice();for(var b=0;b<k.length;b++)e(k[b]);var o=r;n()})([]);</script><script src=static/js/chunk-elementUI.6746a7bf.js></script><script src=static/js/chunk-libs.192fc0ce.js></script><script src=static/js/app.500cc6c2.js></script></body></html>
